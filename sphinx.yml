@@ -9,7 +9,9 @@ permissions:
 
 jobs:
   build-deploy:
-  
+
+    runs-on: windows-latest
+
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -25,7 +27,7 @@ jobs:
       - name: Build docs
         run: |
           cd docs
-          make html
+          .\make.bat html
 
       - name: Add .nojekyll
         run: touch docs/_build/html/.nojekyll
